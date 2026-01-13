@@ -1,1 +1,1 @@
-We are going to build a opti model (knapsack problem) to figure this out.
+We're builders. Check in periodically to see the cool stuff we build.
