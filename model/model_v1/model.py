@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 
-DATA_DIR = Path(__file__).resolve().parent / "data"
+DATA_DIR = Path("data")
 PLAYER_CSV = DATA_DIR / "player_data.csv"
 STINT_CSV = DATA_DIR / "stint_data.csv"
 
