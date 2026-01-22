@@ -15,7 +15,6 @@ Input CSVs (in `data/`):
 
 Outputs commonly written:
 - `player_data.csv` (updated) from `player_stats.ipynb`
-- `line_stints.csv`, `line_stats.csv`, `line_best_by_stint.csv` from `line_stats.ipynb`
 
 ## Environment
 Python 3.11+ recommended.
@@ -44,17 +43,13 @@ If Gurobi is missing, the notebook will error; install it before running optimiz
 
 Run cells top-to-bottom; ensure `data/stint_data.csv` and `data/player_data.csv` are present.
 
-### 2) Line-level stats (`line_stats.ipynb`)
-- Builds line-level stint records and aggregates (no CSV export in current version; prints suggested lines by team/stint).
-- Uses team-strength normalization consistent with player stats.
-
-### 3) Lineup optimization with Gurobi (`lineup_optimization.ipynb`)
+### 2) Lineup optimization with Gurobi (`lineup_optimization.ipynb`)
 - Loads `player_data.csv` (expects stint_gd and wowy columns).
 - Gurobi MILP: select 4 players per stint maximizing `stint_gd + WOWY * wowy_factor` under rating cap (default 8).
 - Prints optimized lineup per stint for the chosen team (default Canada).
 - Requires Gurobi installed and licensed.
 
-### 4) Interactive dashboard (`streamlit_dashboard.py`)
+### 3) Interactive dashboard (`streamlit_dashboard.py`)
 - Streamlit app to tweak lineups, compare optimizer suggestion vs ML (GD/min) suggestion, and view metrics/visuals.
 - Uses stint_gd + WOWY weighting (slider for WOWY factor) and opponent GD/min from `linearmodel`-style aggregation.
 
@@ -63,11 +58,11 @@ Run:
 streamlit run streamlit_dashboard.py
 ```
 
-### 5) Linear model exploration (`linearmodel.ipynb`)
+### 4) Linear model exploration (`linearmodel.ipynb`)
 - Ridge regression over player-opponent interaction features to estimate GD/min contributions.
 - Provides opponent-specific lineup suggestions based on coefficients.
 
-### 6) Additional analysis (`dataAnalysis.ipynb`)
+### 5) Additional analysis (`dataAnalysis.ipynb`)
 - Miscellaneous exploratory work; may be slow/large.
 
 ## Notes on normalization
